@@ -1,0 +1,15 @@
+package com.preran.BlogPost.repos;
+
+
+import com.preran.BlogPost.entities.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface CommentRepo extends JpaRepository<Comment, Long> {
+
+    List<Comment> findAllByBlogId(long blogId);
+
+    Comment findByCommentId(long commentId);
+
+}
