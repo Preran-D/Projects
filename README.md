@@ -44,7 +44,7 @@ You can use the following endpoint to add a new user. No security measures are a
 }
 ```
 
-## Update or change Password
+## Update or Change Password
 
 To change a user's password, you need to be either a USER or ADMIN, and **basic authentication is required.**
 
@@ -79,10 +79,6 @@ To add roles to existing users, you should be an ADMIN. Basic authentication is 
   "roleName":"EMPLOYEE"
 }
 ```
-
-## View all Users
-
-To view all existing users, you should be an ADMIN. Basic authentication is required.
 
 ### EndPoint
 
