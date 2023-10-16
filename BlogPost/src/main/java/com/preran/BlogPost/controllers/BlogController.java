@@ -2,9 +2,8 @@ package com.preran.BlogPost.controllers;
 
 import com.preran.BlogPost.JsonModels.CommentRequestModel;
 import com.preran.BlogPost.JsonModels.PostModel;
-import com.preran.BlogPost.entities.Post;
-import com.preran.BlogPost.entities.Tag;
-import com.preran.BlogPost.exceptions.CustomResponse;
+import com.preran.BlogPost.entities.Tags;
+import com.preran.BlogPost.exceptions.CustomException;
 import com.preran.BlogPost.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,79 +14,48 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/blogs")
 public class BlogController {
 
     @Autowired
     private PostService postService;
 
-    @PostMapping("/user/{userId}/category/{categoryId}/posts")
-    public ResponseEntity<?> createPost(
-            @RequestBody Post post,
-            @PathVariable long userId,
-            @PathVariable long categoryId
-    ) {
-        Post createdPost = this.postService.createPost(post, userId, categoryId);
-        return new ResponseEntity<Post>(createdPost, HttpStatus.CREATED);
+    @PostMapping("/posts")
+    public ResponseEntity<?> createPost(@RequestBody PostModel postModel) {
+        if (postModel != null) {
+            return new ResponseEntity<>(postService.publishPost(postModel), HttpStatus.OK);
+        } else {
+            throw new CustomException("Invalid data");
+        }
     }
-
 
     @DeleteMapping("/posts/{postsId}")
     public ResponseEntity<?> deletePost(@PathVariable long postsId) {
-        this.postService.deletePost(postsId);
-        return new ResponseEntity<>(new CustomResponse("Post deleted successfully", true), HttpStatus.OK);
+        if (postsId > 0) {
+            return new ResponseEntity<>(postService.removePost(postsId), HttpStatus.OK);
+        } else {
+            throw new CustomException("Invalid data");
+        }
     }
 
-    @GetMapping("/posts")
-    public ResponseEntity<?> getAllPost() {
-        List<Post> allPosts = this.postService.getAllPost();
-        return ResponseEntity.ok(allPosts);
-    }
-
-    @GetMapping("/posts/{postId}")
-    public ResponseEntity<?> getPostById(@PathVariable long postId) {
-        Post post = this.postService.getPostById(postId);
-        return new ResponseEntity<>(post, HttpStatus.OK);
-    }
-
-    @GetMapping("/category/{categoryId}/posts")
-    public ResponseEntity<List<?>> getPostByCategory(@PathVariable long categoryId) {
-        List<Post> posts = this.postService.getPostsByCategory(categoryId);
-        return new ResponseEntity<>(posts, HttpStatus.OK);
-    }
-
-    @GetMapping("/user/{userId}/posts")
-    public ResponseEntity<?> getPostByUser(@PathVariable long userId) {
-        List<Post> posts = this.postService.getPostsByUser(userId);
-        return new ResponseEntity<>(posts, HttpStatus.OK);
-    }
-
-    @PostMapping("/add-tags")
-    public ResponseEntity<?> assignTagsToBlog(@RequestBody PostModel postModel ) throws CustomResponse {
-        long blogId = postModel.getPostId();
-        List<Tag> tags = postModel.getTag();
-        if (!tags.isEmpty()) {
-            var updatedBlog = postService.applyTags(blogId, tags);
+    @PostMapping("/add-tags/{postsId}")
+    public ResponseEntity<?> assignTags(@PathVariable("postsId") long postsId, @RequestBody List<Tags> tags) {
+        if (postsId > 0 && !tags.isEmpty()) {
+            var updatedBlog = postService.addTags(postsId, tags);
             return new ResponseEntity<>(updatedBlog, HttpStatus.OK);
         } else {
-            throw new CustomResponse("invalided.data",false);
+            throw new CustomException("invalided.data");
         }
     }
 
     @PostMapping("/comment-post")
-    public ResponseEntity<?> commentOnPost(@RequestBody CommentRequestModel commentRequestModel) throws CustomResponse {
+    public ResponseEntity<?> commentOnPost(@RequestBody CommentRequestModel commentRequestModel) {
         if (commentRequestModel != null) {
             var commentDetail = postService.addComment(commentRequestModel);
             return new ResponseEntity<>(commentDetail, HttpStatus.OK);
         } else {
-            throw new CustomResponse("invalided.data",false);
+            throw new CustomException("invalided.data");
         }
-    }
-
-    @DeleteMapping("/remove-blog/{blogId}")
-    public ResponseEntity<?> deleteBlogPost(@PathVariable("blogId") long blogId) {
-        var removedBlog = postService.removeBlog(blogId);
-        return new ResponseEntity<>(removedBlog, HttpStatus.OK);
     }
 
     @DeleteMapping("/remove-comment/{commentId}")
@@ -95,7 +63,6 @@ public class BlogController {
         var removedComment = postService.removeComment(commentId);
         return new ResponseEntity<>(removedComment, HttpStatus.OK);
     }
-
 
 }
 

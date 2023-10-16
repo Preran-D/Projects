@@ -1,4 +1,4 @@
-package com.preran.BlogPost.exceptions;
+package com.preran.BlogPost.JsonModels;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomResponse extends Throwable {
+public class ErrorResponse {
+    private int statusCode;
     private String message;
-    private boolean success;
+
+
 }

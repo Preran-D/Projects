@@ -1,25 +1,23 @@
 package com.preran.BlogPost.JsonModels;
 
-import com.preran.BlogPost.entities.Tag;
-import com.preran.BlogPost.entities.Users;
+import com.preran.BlogPost.entities.Tags;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostModel {
+
     private long postId;
-    private String senderName;
+    private String publisherName;
     private String title;
     private String content;
-    private Date addedDate;
-    private List<Tag> tag;
-
-
+    private LocalDate addedDate;
+    private List<Tags> tags;
 }

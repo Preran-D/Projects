@@ -10,9 +10,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserModel {
+
     private Long UMid;
     private String name;
     private String email;
     private String password;
+    private boolean enable;
     private String role;
 }
