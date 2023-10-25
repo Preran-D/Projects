@@ -48,10 +48,34 @@ Several categories are added to the system, each with a unique title and ID:
 
 Please note that these values are inserted at runtime and are necessary for using the endpoints.
 
-# Create a Database
-DROP SCHEMA `blog_post_2`;
-CREATE DATABASE  IF NOT EXISTS `blog_post_2`;
-USE `blog_post_2`;
+# Database Creation
+
+This document provides instructions for creating a new database named **`blog_post_2`**.
+
+## Instructions
+
+1. **Delete Existing Database (if any):** If a database named **`blog_post_2`** already exists, it needs to be deleted. This can be done using the following SQL command:**SQL**
+
+    ```sql
+    DROP SCHEMA IF EXISTS `blog_post_2`;
+    
+    ```
+
+   
+
+2. **Create New Database:** Create a new database named **`blog_post_2`** using the following SQL command:**SQL**
+
+    ```sql
+    CREATE DATABASE IF NOT EXISTS `blog_post_2`;
+    
+    ```
+
+
+3. **Select the New Database:** To start using the newly created database, select it using the following SQL command:**SQL**
+
+    ```sql
+    USE `blog_post_2`;
+    ```
 
 ## 1. **Register User**
 
