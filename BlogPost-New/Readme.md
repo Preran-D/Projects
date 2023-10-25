@@ -48,6 +48,10 @@ Several categories are added to the system, each with a unique title and ID:
 
 Please note that these values are inserted at runtime and are necessary for using the endpoints.
 
+# Create a Database
+DROP SCHEMA `blog_post_2`;
+CREATE DATABASE  IF NOT EXISTS `blog_post_2`;
+USE `blog_post_2`;
 
 ## 1. **Register User**
 
