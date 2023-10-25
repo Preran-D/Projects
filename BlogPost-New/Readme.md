@@ -49,7 +49,7 @@ Several categories are added to the system, each with a unique title and ID:
 Please note that these values are inserted at runtime and are necessary for using the endpoints.
 
 
-### 1. **Register User**
+## 1. **Register User**
 
 - **Endpoint:** **(POST /api/users/register)**
 
@@ -67,7 +67,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 }
 ```
 
-### 2. **Update User**
+## 2. **Update User**
 
 - **Endpoint:(POST /api/users/update)**
 
@@ -84,7 +84,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 }
 ```
 
-### 3. **Get User by ID**
+## 3. **Get User by ID**
 
 - **Endpoint:(GET /api/users/get/{userId})**
 
@@ -92,7 +92,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 
 **Access Permission:** Restricted to users with the USER or ADMIN role.
 
-### 4. **Get All Users**
+## 4. **Get All Users**
 
 - **Endpoint: (GET /api/users/all)**
 
@@ -100,7 +100,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 
 **Access Permission:**  Restricted to users with the ADMIN role.
 
-### 5. **Update User Role**
+## 5. **Update User Role**
 
 - **Endpoint: (POST /api/users/{userId}/roles/{roleId})**
 
@@ -108,7 +108,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 
 **Access Permission:** Restricted to users with the ADMIN role.
 
-### 6. **Add Role to User**
+## 6. **Add Role to User**
 
 - **Endpoint: (POST /api/users/{userId}/addRole/{roleId})**
 
@@ -116,7 +116,7 @@ Please note that these values are inserted at runtime and are necessary for usin
 
 **Access Permission:** Restricted to users with the ADMIN role.
 
-### 7. **Delete User**
+## 7. **Delete User**
 
 - **Endpoint: (GET /api/users/delete/{userId})**
 
@@ -126,65 +126,63 @@ Please note that these values are inserted at runtime and are necessary for usin
 
 Please replace **`{userId}`** and **`{roleId}`** in the URLs with the actual user IDs and role IDs when making requests to these endpoints. The access permissions ensure that only authorized users can perform certain actions, helping to maintain security and control in the system.
 
-### 1. **Create a New Post**
+## 1. **Create a New Post**
 
 - **Endpoint:** **POST `/api/post/add/{categoryId}`**
 - **Description:** Create a new blog post with the specified  **`categoryId`**.
 - **Sample JSON Request:**
 
 ```json
-jsonCopy code
 {
     "title": "My First Blog",
     "content": "First Post"
 }
 ```
 
-### 2. **Update a Post**
+## 2. **Update a Post**
 
 - **Endpoint: POST**  **`/api/post/update/{postId}`**
 - **Description:** Update an existing blog post with the specified **`postId`**. It restricts users from updating other users’ posts.
 - **Sample JSON Request:**
 
 ```json
-jsonCopy code
 {
   "title": "Updated Post Title",
   "content": "This is the updated content of the blog post."
 }
 ```
 
-### 3. **Delete a Post**
+## 3. **Delete a Post**
 
 - **Endpoint: GET** **`/api/post/delete/{postId}`**
 - **Description:** Delete a blog post with the specified **`postId`**.
 
-### 4. **Get All Posts**
+## 4. **Get All Posts**
 
 - **Endpoint:** **GET `/api/post/getAll`**
 - **Description:** Retrieve a list of all blog posts.
 
-### 5. **Get Post by ID**
+## 5. **Get Post by ID**
 
 - **Endpoint: GET** **`/api/post/byID/{postId}`**
 - **Description:** Retrieve a blog post by its **`postId`**.
 
-### 6. **Get Posts by Category**
+## 6. **Get Posts by Category**
 
 - **Endpoint: GET** **`/api/post/byCategory/{categoryId}`**
 - **Description:** Retrieve a list of blog posts by the specified **`categoryId`**.
 
-### 7. **Get Posts by User**
+## 7. **Get Posts by User**
 
 - **Endpoint: GET** **`/api/post/byUser/{userId}`**
 - **Description:** Retrieve a list of blog posts by the specified **`userId`**.
 
-### 8. **Search Posts by Title Keyword**
+## 8. **Search Posts by Title Keyword**
 
 - **Endpoint: GET** **`/api/post/searchByTitle/{keywords}`**
 - **Description:** Search for blog posts by title keywords.
 
-### 9. **Search Posts by Content Keyword**
+## 9. **Search Posts by Content Keyword**
 
 - **Endpoint:** **GET `/api/post/searchByContent/{keywords}`**
 - **Description:** Search for blog posts by content keywords.
@@ -195,7 +193,7 @@ jsonCopy code
 
 Remember, these variables need to be replaced with actual values when making requests to these endpoints. For example, if you want to create a new post for a user with an ID of 1 and a category ID of 2, you would use the endpoint **`POST /api/post/addPost/1`**. Similarly, if you want to search for posts with the keyword “blog”,  you would use the endpoint **`GET /api/post/searchByTitle/blog`**. 
 
-### 1. **Create a New Comment**
+## 1. **Create a New Comment**
 
 - **Endpoint:** **POST `/api/comment/add/{postId}`**
 - **Description:** Create a new comment on a blog post with the specified **`postId`**.
@@ -210,14 +208,14 @@ Remember, these variables need to be replaced with actual values when making req
 
 ```
 
-### 2. **Delete a Comment**
+## 2. **Delete a Comment**
 
 - **Endpoint:** **GET `/api/comment/delete/{commentId}`**
 - **Description:** Delete a comment with the specified **`commentId`**. It restricts users from deleting other users’ comments.
 
 Remember, these variables need to be replaced with actual values when making requests to these endpoints. For example, if you want to create a new comment for a post with an ID of 1, you would use the endpoint **`POST /api/comment/add/1`**. Similarly, if you want to delete a comment with an ID of 2, you would use the endpoint **`GET /api/comment/delete/2`**.
 
-### 1. **Create a New Category**
+## 1. **Create a New Category**
 
 - **Endpoint:** **POST `/api/category/create`**
 - **Description:** Create a new category.
@@ -231,7 +229,7 @@ Remember, these variables need to be replaced with actual values when making req
 }
 ```
 
-### 2. **Update a Category**
+## 2. **Update a Category**
 
 - **Endpoint:** **POST `/api/category/update/{categoryId}`**
 - **Description:** Update an existing category with the specified **`categoryId`**.
@@ -245,17 +243,17 @@ Remember, these variables need to be replaced with actual values when making req
 }
 ```
 
-### 3. **Delete a Category**
+## 3. **Delete a Category**
 
 - **Endpoint:** **GET `/api/category/delete/{categoryId}`**
 - **Description:** Delete a category with the specified **`categoryId`**.
 
-### 4. **Get Category by ID**
+## 4. **Get Category by ID**
 
 - **Endpoint:** **GET `/api/category/byId/{categoryId}`**
 - **Description:** Retrieve a category by its **`categoryId`**.
 
-### 5. **Get All Categories**
+## 5. **Get All Categories**
 
 - **Endpoint:** **GET `/api/category/getAll`**
 - **Description:** Retrieve a list of all categories.
