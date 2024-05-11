@@ -1,0 +1,321 @@
+// Define primary color
+$primary-color: #4154f1;
+
+// Define gradients
+$cherry-gradient: linear-gradient(to right, #493240, rgb(179, 30, 30));
+$blue-dark-gradient: linear-gradient(to right, #373b44, #4286f4);
+$green-dark-gradient: linear-gradient(to right, #0a504a, #38ef7d);
+$orange-dark-gradient: linear-gradient(to right, #a86008, #ffba56);
+$cyan-gradient: linear-gradient(135deg, #289cf5, #84c0ec);
+$green-gradient: linear-gradient(135deg, #23bdb8 0%, #43e794 100%);
+$orange-gradient: linear-gradient(to right, #f9900e, #ffba56);
+
+// Main container styles
+.main-container {
+  max-width: 1440px;
+  margin: 100px auto;
+  padding: 15px;
+}
+
+// Auction landing section
+.auction-landing {
+  width: 100%;
+  height: 90vh;
+  background-color: #d0d0ce;
+  border-radius: 20px;
+
+  h1 {
+    margin: 0;
+    font-family: lato;
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #012970;
+  }
+
+  h2 {
+    color: #d04760;
+    margin: 15px 0 0 0;
+    font-size: 26px;
+  }
+
+  .btn-get-started {
+    margin-top: 30px;
+    line-height: 0;
+    padding: 20px 40px;
+    border-radius: 4px;
+    transition: 0.5s;
+    color: #fff;
+    background: rgb(179, 30, 30);
+    box-shadow: 0px 5px 30px
+      rgba(
+        red($primary-color),
+        green($primary-color),
+        blue($primary-color),
+        0.4
+      );
+    span {
+      font-family: karla;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    i {
+      margin-left: 5px;
+      font-size: 18px;
+      transition: 0.3s;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  .auction-img {
+    text-align: right;
+  }
+
+  @media (min-width: 1024px) {
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 991px) {
+    height: auto;
+    padding: 120px 0 60px 0;
+
+    .auction-img {
+      text-align: center;
+      margin-top: 80px;
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .auction-img img {
+      width: 100%;
+    }
+  }
+}
+
+// Auction details section
+.auction-details {
+  // background-color: #d0d0ce;
+  border: 2px solid #d0d0ce;
+  margin-top: 30px;
+  border-radius: 10px;
+  padding-top: 30px;
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+      0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+      0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+      0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+  }
+
+  .card-title {
+    font-family: lato;
+    font-size: 1rem;
+  }
+
+  .l-bg-cherry {
+    background: $cherry-gradient !important;
+    color: #fff;
+  }
+
+  .l-bg-blue-dark {
+    background: $blue-dark-gradient !important;
+    color: #fff;
+  }
+
+  .l-bg-green-dark {
+    background: $green-dark-gradient !important;
+    color: #fff;
+  }
+
+  .l-bg-orange-dark {
+    background: $orange-dark-gradient !important;
+    color: #fff;
+  }
+
+  .card .card-statistic-3 .card-icon-large .fas,
+  .card .card-statistic-3 .card-icon-large .far,
+  .card .card-statistic-3 .card-icon-large .fab,
+  .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+  }
+
+  .card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+  }
+
+  .l-bg-cyan {
+    background: $cyan-gradient !important;
+    color: #fff;
+  }
+
+  .l-bg-green {
+    background: $green-gradient !important;
+    color: #fff;
+  }
+
+  .l-bg-orange {
+    background: $orange-gradient !important;
+    color: #fff;
+  }
+}
+.auction-upcoming {
+  margin: 30px 0;
+  background-color: #d0d0ce;
+  padding: 25px;
+  border-radius: 10px;
+  overflow: auto;
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .table td {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .table img {
+    max-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.newsletter {
+  border: 2px solid #d0d0ce;
+  margin-top: 30px;
+  border-radius: 10px;
+  padding-top: 30px;
+
+  .newsletter-subscribe {
+    color: #313437;
+    background-color: #fff;
+    padding: 50px 0;
+  }
+
+  .newsletter-subscribe p {
+    color: #7d8285;
+    line-height: 1.5;
+  }
+
+  .newsletter-subscribe h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    padding-top: 0;
+    margin-top: 0;
+    color: inherit;
+  }
+
+  .newsletter-subscribe .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto 25px;
+  }
+
+  .newsletter-subscribe .intro p {
+    margin-bottom: 35px;
+  }
+
+  .newsletter-subscribe form {
+    justify-content: center;
+  }
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .newsletter-subscribe form .form-control {
+    background: #eff1f4;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 9px;
+    height: 45px;
+    margin-right: 10px;
+    min-width: 250px;
+  }
+
+  .newsletter-subscribe form .btn {
+    padding: 16px 32px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+  }
+
+  .newsletter-subscribe form .btn:hover {
+    opacity: 1;
+  }
+
+  .newsletter-subscribe form .btn:active {
+    transform: translateY(1px);
+  }
+
+  .newsletter-subscribe form .btn-primary {
+    background-color: #055ada !important;
+    color: #fff;
+    outline: none !important;
+  }
+}

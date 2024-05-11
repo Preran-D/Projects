@@ -1,0 +1,128 @@
+<div class="main-container">
+  <div class="container emp-profile justigy-content-ceter">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <div class="profile-img">
+            <img src="/assets/images/profile-img.jpg" alt="" />
+          </div>
+          <h2 style="text-align: center">
+            {{ receivedData.name | uppercase }}
+          </h2>
+          <div class="profile-btn">
+            <button routerLink="/my-profile" class="profile-edit-btn">
+              profile
+            </button>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="profile-head">
+            <h1>My Profile</h1>
+            <hr />
+          </div>
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="row">
+              <div class="col-md-6">
+                <label>User Name</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ receivedData?.userId }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Name</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ receivedData.name }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <label>Email</label>
+              </div>
+              <label class="toggle col-3">
+                <input
+                  class="privacy-slider"
+                  [checked]="!isEmailPrivate"
+                  (click)="toggleEmailPrivacy()"
+                  class="toggle-checkbox"
+                  type="checkbox"
+                />
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Public</span>
+              </label>
+              <div class="col-6 edit-input">
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  required
+                  value="{{ receivedData.email }}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <label>Phone</label>
+              </div>
+              <label class="toggle col-3">
+                <input
+                  class="privacy-slider"
+                  [checked]="!isPhonePrivate"
+                  (click)="togglePhonePrivacy()"
+                  class="toggle-checkbox"
+                  type="checkbox"
+                />
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Public</span>
+              </label>
+              <div class="col-6 edit-input">
+                <input
+                  type="text"
+                  id="phone"
+                  formControlName="phone"
+                  value=" {{ receivedData.phoneNumber }} "
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-3">
+                <label>Address</label>
+              </div>
+              <label class="toggle col-3">
+                <input
+                  class="privacy-slider"
+                  [checked]="!isAddressPrivate"
+                  (click)="toggleAddressPrivacy()"
+                  class="toggle-checkbox"
+                  type="checkbox"
+                />
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Public</span>
+              </label>
+              <div class="col-6 edit-input">
+                <textarea
+                  id="address"
+                  formControlName="address"
+                  value="{{ receivedData.address }}"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-btn">
+        <button
+          type="submit"
+          [disabled]="profileForm.invalid"
+          class="submit-btn"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
